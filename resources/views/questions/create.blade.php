@@ -5,7 +5,7 @@
 
             <!-- Question Text -->
             <div>
-                <x-input-label for="question_text" :value="__('Question Text')" />
+                <x-input-label for="question_text" :value="__('Question is')" />
                 <x-text-input id="question_text" class="block mt-1 w-full" type="text" name="question_text" :value="old('question_text')" required autofocus />
                 <x-input-error :messages="$errors->get('question_text')" class="mt-2" />
             </div>

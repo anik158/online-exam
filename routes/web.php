@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidateExamController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
@@ -38,6 +39,12 @@ Route::post('/questions', [QuestionController::class, 'store'])->name('questions
 //Exams Controller
 Route::get('exams/create', [ExamController::class, 'create'])->name('exams.create');
 Route::post('exams', [ExamController::class, 'store'])->name('exams.store');
+Route::get('exams', [ExamController::class, 'index'])->name('exams.exam-list');
+
+//Candidate Controller
+Route::get('candidates/{examId}/takes-exam', [CandidateExamController::class, 'takesExam'])->name('candidates.takes-exam');
+Route::post('candidates/{examId}', [CandidateExamController::class, 'store'])->name('candidates.exam_store');
+
 
 
 require __DIR__.'/auth.php';

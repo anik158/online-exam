@@ -14,6 +14,11 @@ class ExamController extends Controller
         return view('exam.create', compact('questions'));
     }
 
+    public function index(){
+        $exams = Exam::all();
+        return view('exam.exams', compact('exams'));
+    }
+
     public function store(Request $request)
     {
         $exam = new Exam;

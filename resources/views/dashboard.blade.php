@@ -19,6 +19,7 @@
                     <a href="{{ route('questions.index') }}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">Question Bank</a>
                     <a href="{{ route('exams.create') }}" class="inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded ml-4">Create Exam</a>
                 @endif
+                <a href="{{ route('exams.exam-list') }}" class="inline-block bg-red-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded ml-4">On Going Exams</a>
 
             </div>
         </div>
