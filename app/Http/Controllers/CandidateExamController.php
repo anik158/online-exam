@@ -28,7 +28,7 @@ class CandidateExamController extends Controller
         foreach ($request->answers as $question_id => $answer) {
             $question = Question::find($question_id);
             $correct_answers = json_decode($question->correct_answers);
-            if ($correct_answers == $answer) {
+            if (in_array($answer, $correct_answers)) {
                 $exam_question = ExamQuestion::where('exam_id', $examId)->where('question_id', $question_id)->first();
                 $score += $exam_question->marks;
             } elseif ($exam->negative_marking) {
@@ -41,6 +41,8 @@ class CandidateExamController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Exam submitted successfully');
     }
+
+
 
 
 

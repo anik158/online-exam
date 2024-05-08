@@ -15,7 +15,7 @@
                 </div>
 
                 @if (Auth::user()->role == 'examiner')
-                    <a href="{{ route('questions.create') }}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Question to Question Bank</a>
+                    <a href="{{ route('questions.create') }}" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Questions to Question Bank</a>
                     <a href="{{ route('questions.index') }}" class="inline-block bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-4">Question Bank</a>
                     <a href="{{ route('exams.create') }}" class="inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded ml-4">Create Exam</a>
                 @endif

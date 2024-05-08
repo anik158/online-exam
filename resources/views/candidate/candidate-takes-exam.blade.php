@@ -13,11 +13,11 @@
                     <label class="block text-gray-700 text-sm font-bold mb-2" for="answers[{{ $examQuestion->question_id }}]">
                         {{ $examQuestion->question->question_text }}
                     </label>
-
+                    <input type="hidden" name="answers[{{ $examQuestion->question_id }}]" value="0">
                     @foreach (json_decode($examQuestion->question->options) as $index => $option)
                         <div class="mt-2">
                             <label class="inline-flex items-center">
-                                <input type="radio" class="form-radio" name="answers[{{ $examQuestion->question_id }}]" value="{{ $index }}">
+                                <input type="radio" class="form-radio" name="answers[{{ $examQuestion->question_id }}]" value="{{ $index + 1 }}">
                                 <span class="ml-2">{{ $option }}</span>
                             </label>
                         </div>
@@ -26,17 +26,13 @@
             @endforeach
 
             <div class="flex items-center justify-between">
-{{--                @if (Auth::user()->role == 'candidate')--}}
-{{--                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">--}}
-{{--                        Submit Answers--}}
-{{--                    </button>  --}}
-{{--                @endif--}}
-
+                @if (Auth::user()->role == 'candidate')
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                         Submit Answers
                     </button>
+                @endif
 
-                    <a href="{{ route('dashboard') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Go Back</a>
+                <a href="{{ route('dashboard') }}" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-4">Go Back</a>
             </div>
         </form>
     </div>
