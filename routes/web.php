@@ -32,13 +32,13 @@ Route::middleware('auth')->group(function () {
 });
 
 //Question Controller
-Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index');
-Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create');
-Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store');
+Route::get('/questions', [QuestionController::class, 'index'])->name('questions.index')->middleware('examiner');
+Route::get('/questions/create', [QuestionController::class, 'create'])->name('questions.create')->middleware(['examiner']);
+Route::post('/questions', [QuestionController::class, 'store'])->name('questions.store')->middleware(['examiner']);
 
 //Exams Controller
-Route::get('exams/create', [ExamController::class, 'create'])->name('exams.create');
-Route::post('exams', [ExamController::class, 'store'])->name('exams.store');
+Route::get('exams/create', [ExamController::class, 'create'])->name('exams.create')->middleware(['examiner']);
+Route::post('exams', [ExamController::class, 'store'])->name('exams.store')->middleware(['examiner']);
 Route::get('exams', [ExamController::class, 'index'])->name('exams.exam-list');
 
 //Candidate Controller
